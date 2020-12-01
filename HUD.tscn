@@ -1,3 +1,370 @@
-[gd_scene format=2]
+[gd_scene load_steps=29 format=2]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[ext_resource path="res://Assets/UI/Build/BuildmenuHover.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Build/Buildmenu.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Build/BuildmenuPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/tabs/commercialIcon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/tabs/IndustryIcon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_bionics.png" type="Texture" id=6]
+[ext_resource path="res://Assets/UI/tabs/ResearchIcon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/tabs/ResidentIcon.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_house_3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_house_2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_house_1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_water_plant.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_restaurants.png" type="Texture" id=16]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_FabLab.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_Power_station.png" type="Texture" id=18]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_greenhouse.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_moon_walk.png" type="Texture" id=20]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_physics.png" type="Texture" id=21]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_mall.png" type="Texture" id=22]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_Satellite.png" type="Texture" id=23]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_oxygen_tank.png" type="Texture" id=24]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_biochem.png" type="Texture" id=25]
+[ext_resource path="res://Assets/scripts/build_menu.gd" type="Script" id=26]
+[ext_resource path="res://Assets/scripts/category_menu.gd" type="Script" id=27]
+[ext_resource path="res://Assets/scripts/building_button.gd" type="Script" id=28]
+[ext_resource path="res://Assets/scripts/HUD.gd" type="Script" id=29]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_planetarium.png" type="Texture" id=30]
+[ext_resource path="res://Assets/UI/building_icons/building_icon_observatory.png" type="Texture" id=31]
+
+[node name="HUD" type="CanvasLayer"]
+offset = Vector2( 0, 100 )
+scale = Vector2( 0.6, 0.6 )
+transform = Transform2D( 0.6, 0, 0, 0.6, 0, 100 )
+script = ExtResource( 29 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 14.0
+margin_top = 802.0
+margin_right = 3012.0
+margin_bottom = 1379.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="build_menu" type="TextureButton" parent="HBoxContainer"]
+margin_right = 578.0
+margin_bottom = 577.0
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 1 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="residential_menu" type="TextureButton" parent="HBoxContainer"]
+visible = false
+margin_left = 628.0
+margin_top = 43.0
+margin_right = 1183.0
+margin_bottom = 533.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 8 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+category_name = "residential"
+
+[node name="BuildingContainer" type="VBoxContainer" parent="HBoxContainer/residential_menu"]
+visible = false
+margin_left = 98.0
+margin_top = -1200.0
+margin_right = 854.0
+margin_bottom = 1132.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="House3" type="TextureButton" parent="HBoxContainer/residential_menu/BuildingContainer"]
+margin_right = 756.0
+margin_bottom = 754.0
+texture_normal = ExtResource( 12 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "house3"
+
+[node name="House2" type="TextureButton" parent="HBoxContainer/residential_menu/BuildingContainer"]
+margin_top = 789.0
+margin_right = 756.0
+margin_bottom = 1543.0
+texture_normal = ExtResource( 13 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "house2"
+
+[node name="House1" type="TextureButton" parent="HBoxContainer/residential_menu/BuildingContainer"]
+margin_top = 1578.0
+margin_right = 756.0
+margin_bottom = 2332.0
+texture_normal = ExtResource( 14 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "house1"
+
+[node name="commercial_menu" type="TextureButton" parent="HBoxContainer"]
+visible = false
+margin_left = 628.0
+margin_top = 43.0
+margin_right = 1183.0
+margin_bottom = 533.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+category_name = "commercial"
+
+[node name="BuildingContainer" type="VBoxContainer" parent="HBoxContainer/commercial_menu"]
+visible = false
+margin_left = 89.0
+margin_top = -1990.0
+margin_right = 845.0
+margin_bottom = 1920.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bionics Boutique" type="TextureButton" parent="HBoxContainer/commercial_menu/BuildingContainer"]
+margin_right = 756.0
+margin_bottom = 754.0
+texture_normal = ExtResource( 6 )
+script = ExtResource( 28 )
+building_name = "bionics"
+
+[node name="Space Walk" type="TextureButton" parent="HBoxContainer/commercial_menu/BuildingContainer"]
+margin_top = 789.0
+margin_right = 756.0
+margin_bottom = 1543.0
+texture_normal = ExtResource( 20 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "space_walk"
+
+[node name="Planetarium" type="TextureButton" parent="HBoxContainer/commercial_menu/BuildingContainer"]
+margin_top = 1578.0
+margin_right = 756.0
+margin_bottom = 2332.0
+texture_normal = ExtResource( 30 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "planetarium"
+
+[node name="Restaurant" type="TextureButton" parent="HBoxContainer/commercial_menu/BuildingContainer"]
+margin_top = 2367.0
+margin_right = 756.0
+margin_bottom = 3121.0
+texture_normal = ExtResource( 16 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "restaurant"
+
+[node name="Mall" type="TextureButton" parent="HBoxContainer/commercial_menu/BuildingContainer"]
+margin_top = 3156.0
+margin_right = 756.0
+margin_bottom = 3910.0
+texture_normal = ExtResource( 22 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "mall"
+
+[node name="research_menu" type="TextureButton" parent="HBoxContainer"]
+visible = false
+margin_left = 628.0
+margin_top = 43.0
+margin_right = 1183.0
+margin_bottom = 533.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 7 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+category_name = "research"
+
+[node name="BuildingContainer" type="VBoxContainer" parent="HBoxContainer/research_menu"]
+visible = false
+margin_left = 89.0
+margin_top = -1595.0
+margin_right = 845.0
+margin_bottom = 1526.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Satellite Launch" type="TextureButton" parent="HBoxContainer/research_menu/BuildingContainer"]
+margin_right = 756.0
+margin_bottom = 754.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "satellite"
+
+[node name="Physics Lab" type="TextureButton" parent="HBoxContainer/research_menu/BuildingContainer"]
+margin_top = 789.0
+margin_right = 756.0
+margin_bottom = 1543.0
+texture_normal = ExtResource( 21 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "physics_lab"
+
+[node name="Biochem Lab" type="TextureButton" parent="HBoxContainer/research_menu/BuildingContainer"]
+margin_top = 1578.0
+margin_right = 756.0
+margin_bottom = 2332.0
+texture_normal = ExtResource( 25 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "biochem_lab"
+
+[node name="Observatory" type="TextureButton" parent="HBoxContainer/research_menu/BuildingContainer"]
+margin_top = 2367.0
+margin_right = 756.0
+margin_bottom = 3121.0
+texture_normal = ExtResource( 31 )
+script = ExtResource( 28 )
+building_name = "observatory"
+
+[node name="industrial_menu" type="TextureButton" parent="HBoxContainer"]
+visible = false
+margin_left = 628.0
+margin_top = 43.0
+margin_right = 1183.0
+margin_bottom = 533.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 5 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+category_name = "industrial"
+
+[node name="BuildingContainer" type="VBoxContainer" parent="HBoxContainer/industrial_menu"]
+visible = false
+margin_left = 89.0
+margin_top = -1990.0
+margin_right = 129.0
+margin_bottom = -1950.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/separation = 35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FabLab" type="TextureButton" parent="HBoxContainer/industrial_menu/BuildingContainer"]
+margin_right = 756.0
+margin_bottom = 754.0
+texture_normal = ExtResource( 17 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "fab_lab"
+
+[node name="Greenhouse" type="TextureButton" parent="HBoxContainer/industrial_menu/BuildingContainer"]
+margin_top = 789.0
+margin_right = 756.0
+margin_bottom = 1543.0
+texture_normal = ExtResource( 19 )
+script = ExtResource( 28 )
+building_name = "greenhouse"
+
+[node name="Power Plant" type="TextureButton" parent="HBoxContainer/industrial_menu/BuildingContainer"]
+margin_top = 1578.0
+margin_right = 756.0
+margin_bottom = 2332.0
+texture_normal = ExtResource( 18 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "power_plant"
+
+[node name="Water Plant" type="TextureButton" parent="HBoxContainer/industrial_menu/BuildingContainer"]
+margin_top = 2367.0
+margin_right = 756.0
+margin_bottom = 3121.0
+texture_normal = ExtResource( 15 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "water_plant"
+
+[node name="Oxygen Tank" type="TextureButton" parent="HBoxContainer/industrial_menu/BuildingContainer"]
+margin_top = 3156.0
+margin_right = 756.0
+margin_bottom = 3902.0
+texture_normal = ExtResource( 24 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+building_name = "oxygen_tank"
+[connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
+[connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House3" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House2" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House1" to="." method="_on_building_selected"]
+[connection signal="category_activated" from="HBoxContainer/commercial_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/commercial_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/commercial_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
+[connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Bionics Boutique" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Space Walk" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Planetarium" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Restaurant" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Mall" to="." method="_on_building_selected"]
+[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
+[connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Satellite Launch" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Physics Lab" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Biochem Lab" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Observatory" to="." method="_on_building_selected"]
+[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
+[connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/FabLab" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Greenhouse" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Power Plant" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Water Plant" to="." method="_on_building_selected"]
+[connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Oxygen Tank" to="." method="_on_building_selected"]

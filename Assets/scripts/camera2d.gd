@@ -13,6 +13,7 @@ var prev_mouse_pos = Vector2(0,0)
 var curr_mouse_pos = Vector2(0,0)
 var goalPosition = Vector2(0,0)
 var decelerate = false
+var placing = false;
 
 
 #shake vars
@@ -37,24 +38,25 @@ func _process(delta):
 	if trauma:
 		shake()
 		trauma = max(trauma - decay * delta, 0)
-		
-	process_mouse_movement(delta)
-	process_keyboard_movement(delta)
-	process_keyboard_zoom(delta)
+	if(!placing):
+		process_mouse_movement(delta)
+		process_keyboard_movement(delta)
+		process_keyboard_zoom(delta)
 
 func _input(event):
-	# need to do mouse wheel things here, since there is no pressed state on them.
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == BUTTON_WHEEL_UP:
-			zoom.x -= zoom_speed * 0.048 # seconds in three frames at 60fps.
-			zoom.y -= zoom_speed * 0.048 # just an estimate
-			zoom.x = clamp(zoom.x, limit_zoom[0], limit_zoom[1])
-			zoom.y = clamp(zoom.y, limit_zoom[0], limit_zoom[1])
-		if event.button_index == BUTTON_WHEEL_DOWN:
-			zoom.x += zoom_speed * 0.048 # seconds in three frames at 60fps.
-			zoom.y += zoom_speed * 0.048 # just an estimate
-			zoom.x = clamp(zoom.x, limit_zoom[0], limit_zoom[1])
-			zoom.y = clamp(zoom.y, limit_zoom[0], limit_zoom[1])
+	# need to do mouse zoom things here, since there is no pressed state on them.
+	if(!placing):
+		if event is InputEventMouseButton and event.pressed:
+			if event.button_index == BUTTON_WHEEL_UP:
+				zoom.x -= zoom_speed * 0.048 # seconds in three frames at 60fps.
+				zoom.y -= zoom_speed * 0.048 # just an estimate
+				zoom.x = clamp(zoom.x, limit_zoom[0], limit_zoom[1])
+				zoom.y = clamp(zoom.y, limit_zoom[0], limit_zoom[1])
+			if event.button_index == BUTTON_WHEEL_DOWN:
+				zoom.x += zoom_speed * 0.048 # seconds in three frames at 60fps.
+				zoom.y += zoom_speed * 0.048 # just an estimate
+				zoom.x = clamp(zoom.x, limit_zoom[0], limit_zoom[1])
+				zoom.y = clamp(zoom.y, limit_zoom[0], limit_zoom[1])
 
 func process_mouse_movement(delta):
 	var mouse_movement = Vector2()
