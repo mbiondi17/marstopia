@@ -25,18 +25,14 @@ func _process(delta):
 		position = get_global_mouse_position()
 		if Input.is_action_just_pressed("Click"):
 			var map = get_node("../TileMap")
-			print("world position" + str(position))
-			print("map position for that position: " + str(map.world_to_map(position)))
-			print("world position for that map position: " + str(map.map_to_world((map.world_to_map(position)))))
-			print("corrected world position: " + str(position * get_node("../Camera2D").zoom))
-			print("corrected map position: " + str(map.world_to_map(position * get_node("../Camera2D").zoom)))
-			print("corrected world position fro that map position: " + str(map.map_to_world((map.world_to_map(position * get_node("../Camera2D").zoom + get_node("../Camera2D").position)))))
-			print("")
-			var top_left = map.world_to_map(position * get_node("../Camera2D").zoom + get_node("../Camera2D").position)
+
+			#I have tried this with much more and much less complex adjustments. Can't figure out what it should be.
+			#I have basically tried all of the printed out coordinates above.
+			var top_left = map.world_to_map(position * map.scale) 
 			var top_right = Vector2(top_left.x+1, top_left.y)
 			var bottom_left = Vector2(top_left.x, top_left.y+1)
 			var bottom_right = Vector2(top_left.x+1, top_left.y+1)
-			map.set_cellv(top_left, map.tile_set.get_tiles_ids().size()-1)
+			map.set_cellv(top_left, map.tile_set.get_tiles_ids().size()-1) #changing ground tiles, but offset!
 			if building_size == 2:
 				map.set_cellv(top_right, map.tile_set.get_tiles_ids().size()-1)
 				map.set_cellv(bottom_left, map.tile_set.get_tiles_ids().size()-1)

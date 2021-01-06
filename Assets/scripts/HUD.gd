@@ -17,7 +17,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_building_selected(build_name):
 	get_node("HBoxContainer/residential_menu").visible = false
 	get_node("HBoxContainer/residential_menu").button_pressed = false	
