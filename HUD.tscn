@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Assets/UI/Build/BuildmenuHover.png" type="Texture" id=1]
-[ext_resource path="res://Assets/UI/Build/Buildmenu.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/Build/BuildmenuPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/building_icons/BuildmenuHover.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/building_icons/Buildmenu.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/building_icons/BuildmenuPressed.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/tabs/commercialIcon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/tabs/IndustryIcon.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/building_icons/building_icon_bionics.png" type="Texture" id=6]
@@ -58,7 +58,6 @@ __meta__ = {
 }
 
 [node name="residential_menu" type="TextureButton" parent="HBoxContainer"]
-visible = false
 margin_left = 628.0
 margin_top = 43.0
 margin_right = 1183.0
@@ -117,10 +116,9 @@ __meta__ = {
 building_name = "house1"
 
 [node name="commercial_menu" type="TextureButton" parent="HBoxContainer"]
-visible = false
-margin_left = 628.0
+margin_left = 1233.0
 margin_top = 43.0
-margin_right = 1183.0
+margin_right = 1788.0
 margin_bottom = 533.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -195,10 +193,9 @@ __meta__ = {
 building_name = "mall"
 
 [node name="research_menu" type="TextureButton" parent="HBoxContainer"]
-visible = false
-margin_left = 628.0
+margin_left = 1838.0
 margin_top = 43.0
-margin_right = 1183.0
+margin_right = 2393.0
 margin_bottom = 533.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -262,10 +259,9 @@ script = ExtResource( 28 )
 building_name = "observatory"
 
 [node name="industrial_menu" type="TextureButton" parent="HBoxContainer"]
-visible = false
-margin_left = 628.0
+margin_left = 2443.0
 margin_top = 43.0
-margin_right = 1183.0
+margin_right = 2998.0
 margin_bottom = 533.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -338,9 +334,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 building_name = "oxygen_tank"
-[connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/residential_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House3" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House2" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/residential_menu/BuildingContainer/House1" to="." method="_on_building_selected"]
@@ -353,15 +349,15 @@ building_name = "oxygen_tank"
 [connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Restaurant" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Mall" to="." method="_on_building_selected"]
 [connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
-[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Satellite Launch" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Physics Lab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Biochem Lab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Observatory" to="." method="_on_building_selected"]
 [connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
-[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
 [connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/FabLab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Greenhouse" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Power Plant" to="." method="_on_building_selected"]
