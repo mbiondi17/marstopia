@@ -30,15 +30,13 @@
 [ext_resource path="res://Assets/UI/building_icons/building_icon_observatory.png" type="Texture" id=31]
 
 [node name="HUD" type="CanvasLayer"]
-scale = Vector2( 0.65, 0.65 )
-transform = Transform2D( 0.65, 0, 0, 0.65, 0, 0 )
 script = ExtResource( 29 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 10.0
-margin_top = 1400.0
-margin_right = 3008.0
-margin_bottom = 1977.0
+margin_left = 4.34314
+margin_top = 871.084
+margin_right = 3002.34
+margin_bottom = 1448.08
 rect_scale = Vector2( 0.35, 0.35 )
 custom_constants/separation = 50
 __meta__ = {
@@ -352,15 +350,15 @@ building_name = "oxygen_tank"
 [connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Planetarium" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Restaurant" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/commercial_menu/BuildingContainer/Mall" to="." method="_on_building_selected"]
-[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/research_menu" to="HBoxContainer/industrial_menu" method="on_category_activated"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Satellite Launch" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Physics Lab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Biochem Lab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/research_menu/BuildingContainer/Observatory" to="." method="_on_building_selected"]
-[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/commercial_menu" method="on_category_activated"]
+[connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/residential_menu" method="on_category_activated"]
 [connection signal="category_activated" from="HBoxContainer/industrial_menu" to="HBoxContainer/research_menu" method="on_category_activated"]
 [connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/FabLab" to="." method="_on_building_selected"]
 [connection signal="building_selected" from="HBoxContainer/industrial_menu/BuildingContainer/Greenhouse" to="." method="_on_building_selected"]
